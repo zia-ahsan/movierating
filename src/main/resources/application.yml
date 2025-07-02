@@ -19,7 +19,7 @@ spring:
               - openid
               - profile
               - email
-            redirect-uri: https://localhost:8443/login/oauth2/code/azure
+            redirect-uri: https://movierating-production.up.railway.app/login/oauth2/code/azure
             authorization-grant-type: authorization_code
             client-authentication-method: client_secret_post
             client-name: Azure
@@ -35,4 +35,4 @@ azure:
     tenant-id: bc9d1ec6-300f-4e3f-b55a-2c3b7fcb03a6
     tenant-name: movieratingcustomers
     policy: ext_ident_signup_signin_flow
-    logout-redirect-uri: https://localhost:8443
+    logout-redirect-uri: https://movierating-production.up.railway.app
