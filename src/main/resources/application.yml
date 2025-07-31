@@ -1,0 +1,38 @@
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: password
+    key-store-type: PKCS12
+    key-alias: myappalias
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          azure:
+            client-id: ${ENTRA_EXTERNAL_CLIENT_ID}
+            client-secret: ${ENTRA_EXTERNAL_CLIENT_SECRET}
+            scope:
+              - openid
+              - profile
+              - email
+            redirect-uri: https://localhost:8443/login/oauth2/code/azure
+            authorization-grant-type: authorization_code
+            client-authentication-method: client_secret_post
+            client-name: Azure
+        provider:
+          azure:
+            # Issuer URL includes tenant name, domain, and user flow policy for correct metadata discovery
+            issuer-uri: https://${ENTRA_EXTERNAL_TENANT_ID}.ciamlogin.com/${ENTRA_EXTERNAL_TENANT_ID}/v2.0
+      resourceserver:
+        jwt:
+          issuer-uri: https://login.microsoftonline.com/${ENTRA_EXTERNAL_TENANT_ID}/v2.0
+azure:
+  b2c:
+    tenant-id: ${ENTRA_EXTERNAL_TENANT_ID}
+    tenant-name: movieratingcustomers
+    policy: ext_ident_signup_signin_flow
+    logout-redirect-uri: https://localhost:8443

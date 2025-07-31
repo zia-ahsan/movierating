@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title layout:title-pattern="$LAYOUT_TITLE - Movie App">Menu</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row min-vh-100">
+        <!-- Sidebar -->
+        <nav class="col-md-2 sidebar bg-dark text-white p-3">
+            <h4 class="text-white">Movie App</h4>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link text-white" th:href="@{/}">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" th:href="@{/ratings/rate-movies}">Rate Movies</a></li>
+                <li class="nav-item"><a class="nav-link text-white" th:href="@{/movies/top-10-rated-movies}">Top Rated</a></li>
+                <li class="nav-item"><a class="nav-link text-white" th:href="@{/movies/best-picture-winner}">Best Picture Owners</a></li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post">
+                        <button class="btn btn-outline-light btn-sm mt-2" type="submit">Logout</button>
+                    </form>
+                </li>
+            </ul>
+            <div class="mt-4">
+                <div sec:authorize="isAuthenticated()">
+                    <p class="small">
+                        Logged in as:<br/>
+                        <strong th:text="${userName}">User Name</strong><br/>
+                        <em th:text="${userEmail}">email@example.com</em>
+                    </p>
+                </div>
+                <div sec:authorize="!isAuthenticated()">
+                    <a th:href="@{/oauth2/authorization/azure}" class="text-warning">Login</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main content -->
+        <main class="col-md-10 main-content bg-light" layout:fragment="content">
+            <!-- Page content will be injected here -->
+        </main>
+    </div>
+</div>
+</body>
+</html>

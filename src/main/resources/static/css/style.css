@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    background-color: #343a40;
+    padding-top: 1rem;
+    color: white;
+    min-height: 100vh;
+}
+
+.main-content {
+    padding: 2rem;
+    overflow-x: auto;
+}
+
+/* Make Bootstrap's row display as flex to align sidebar + main */
+.row.min-vh-100 {
+    display: flex;
+}
+
+/* Navigation styles */
+.sidebar .nav-link {
+    color: white;
+}
+
+.sidebar .nav-link:visited {
+    color: white;
+}
+
+.sidebar .nav-link:hover {
+    color: #ffc107 !important;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: #ffc107 !important;
+}
+
