@@ -1,0 +1,7 @@
+flowchart LR
+User[[User]] -->|Uses| Browser[[Web Browser / Thymeleaf UI]]
+Browser -->|HTTPS requests| App[(MovieRating Spring Boot App)]
+App -->|JDBC queries| Postgres[(PostgreSQL DB)]
+App -->|HTTP calls| OMDb[(External OMDb API)]
+Browser -->|OIDC login| EntraID[(Microsoft Entra External ID / Azure AD
+B2C)]

@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant Browser
+    participant App as MovieRating App
+    participant Entra as Entra ID
+
+    Browser->>App: Click "Login"
+    App-->>Browser: Redirect to Entra authorize (includes scope=openid)
+    Browser->>Entra: (User logs in at Entra UI)
+    Entra-->>Browser: Redirect back with code (to /login/oauth2/code/azure)
+    Browser->>App: GET /login/oauth2/code/azure?code=...
+    App->>Entra: POST Token request (code, client_secret)
+    Entra-->>App: Response with id_token and access_token
+    Note over App: Spring Security stores id_token -> Authenticated User
+    App-->>Browser: Redirect to homepage (user is now authenticated)
+    Browser->>App: GET / (session cookie included)
+    App-->>Browser: 200 OK (show home, user info, etc.)

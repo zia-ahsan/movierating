@@ -105,7 +105,7 @@ class MovieResourceIT {
 
     @Test
     void testGetAllMovies() throws Exception {
-        mockMvc.perform(get("/api/v1/movies/all")
+        mockMvc.perform(get("/api/v1/movies")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(greaterThanOrEqualTo(1))));

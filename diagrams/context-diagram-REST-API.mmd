@@ -1,0 +1,6 @@
+flowchart LR
+    Client[Developer / Postman / Backend Service] -->|OAuth2 Client Credentials Grant| Entra[Microsoft Entra External ID]
+    Client -->|Bearer Token| API[(MovieRating Spring Boot App)]
+    API -->|JDBC| Postgres[(PostgreSQL Database)]
+    API -->|OMDb API Call - at startup| OMDb[(External OMDb API)]
+    Entra -->|Access Token| Client

@@ -26,13 +26,13 @@ spring:
         provider:
           azure:
             # Issuer URL includes tenant name, domain, and user flow policy for correct metadata discovery
-            issuer-uri: https://${ENTRA_EXTERNAL_TENANT_ID}.ciamlogin.com/${ENTRA_EXTERNAL_TENANT_ID}/v2.0
+            issuer-uri: https://bc9d1ec6-300f-4e3f-b55a-2c3b7fcb03a6.ciamlogin.com/bc9d1ec6-300f-4e3f-b55a-2c3b7fcb03a6/v2.0
       resourceserver:
         jwt:
-          issuer-uri: https://login.microsoftonline.com/${ENTRA_EXTERNAL_TENANT_ID}/v2.0
+          issuer-uri: https://login.microsoftonline.com/bc9d1ec6-300f-4e3f-b55a-2c3b7fcb03a6/v2.0
 azure:
   b2c:
-    tenant-id: ${ENTRA_EXTERNAL_TENANT_ID}
+    tenant-id: bc9d1ec6-300f-4e3f-b55a-2c3b7fcb03a6
     tenant-name: movieratingcustomers
     policy: ext_ident_signup_signin_flow
     logout-redirect-uri: https://localhost:8443

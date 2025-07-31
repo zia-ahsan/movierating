@@ -14,7 +14,6 @@ public class MovieratingApplication {
 
 	public static void main(String[] args) {
 		Dotenv dotenv = Dotenv.configure().load();
-		System.setProperty("ENTRA_EXTERNAL_TENANT_ID", dotenv.get("ENTRA_EXTERNAL_TENANT_ID"));
 		System.setProperty("ENTRA_EXTERNAL_CLIENT_ID", dotenv.get("ENTRA_EXTERNAL_CLIENT_ID"));
 		System.setProperty("ENTRA_EXTERNAL_CLIENT_SECRET", dotenv.get("ENTRA_EXTERNAL_CLIENT_SECRET"));
 		SpringApplication.run(MovieratingApplication.class, args);

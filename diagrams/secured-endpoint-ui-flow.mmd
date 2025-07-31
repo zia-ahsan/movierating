@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant Browser
+    participant App as MovieRating App
+    participant Entra as Entra ID
+
+    Browser->>App: GET /ratings/rate-movies (user clicking "Rate")
+    App-->>Browser: 200 OK (renders rating form, since user is logged in)
+    Browser->>App: POST /ratings/submit-ratings (with form data)
+    Note over App: Spring Security sees user is authenticated (session)
+    App->>App: [Process rating, save to DB]
+    App-->>Browser: 302 Redirect to confirmation page

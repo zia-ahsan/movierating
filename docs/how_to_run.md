@@ -12,10 +12,12 @@ To run the **MovieRating** application locally, follow the steps below:
 
     * Registered client application (registered as MovieRatingApp, MovieRatingAppClient)
     * Valid client-id, client-secret, redirect-uri, issuer-uri, redirect-uri, policy, logout-redirect-uri (provided in application.yml)
+    * client-id, client-secret values will be provided via email on request
+    * postman scripts with auto refresh JWT token will be provided via email on request 
 
-#### 🚀 Steps to Run Locally
+#### Steps to Run Locally
 
-1. **Unzip the provided source code movierating.zip**
+1. **Unzip the provided source code movierating.zip or use git url https://github.com/zia-ahsan/movierating.git**
 
    ```bash
    cd path/movierating

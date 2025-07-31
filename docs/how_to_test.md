@@ -34,7 +34,7 @@ This guide explains how to test the **MovieRating** API endpoints securely using
     * Choose any endpoint (e.g., `Get: Is Best Picture Winner`)
     * Click **"Send"** with a movie title in the url
 
-## 🔐 Behind the Scenes (Automated)
+## Behind the Scenes (Automated)
 
 * A **Pre-request Script** in the collection:
 
