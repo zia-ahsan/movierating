@@ -1,4 +1,4 @@
-package com.myorg.movierating.backend.config;
+package com.myorg.movierating.ui.config;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
